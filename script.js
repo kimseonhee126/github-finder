@@ -1,13 +1,13 @@
 const head = document.getElementById('search');
 const middleArea = document.getElementById('middle');
 const latestRepoArea = document.getElementById('latest-repo');
+const grassBtn = document.getElementById('grassBtn');
 let repos = []
 
 function searchUser() {
     let username = document.getElementById("searchText").value;
 
     let profileUrl = `https://api.github.com/users/${username}`;
-    let grassUrl = `https://ghchart.rshah.org/${username}`;
     let repoUrl = `https://api.github.com/users/${username}/repos`;
 
     fetch(profileUrl)
@@ -201,4 +201,12 @@ function createMiddle(middleItem, repoItem, username) {
 
 
     return {middleEl, infoEl1, infoEl2};
+}
+
+function confirmGrass() {
+    let username = document.getElementById("searchText").value;
+    let grassUrl = `https://ghchart.rshah.org/${username}`;
+
+    window.location.href = viewProfileURL;
+
 }
